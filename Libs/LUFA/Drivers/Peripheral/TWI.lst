@@ -1,0 +1,213 @@
+   1               		.file	"TWI.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               		.section	.text.TWI_StartTransmission,"ax",@progbits
+  19               	.global	TWI_StartTransmission
+  21               	TWI_StartTransmission:
+  22               	.LFB15:
+  23               	.LSM0:
+  24               	.LVL0:
+  25               	/* prologue: function */
+  26               	/* frame size = 0 */
+  27 0000 782F      		mov r23,r24
+  28               	.LBB35:
+  29               	.LSM1:
+  30 0002 84EA      		ldi r24,lo8(-92)
+  31               	.LVL1:
+  32 0004 8093 BC00 		sts 188,r24
+  33               	.LSM2:
+  34 0008 84E6      		ldi r24,lo8(100)
+  35 000a 689F      		mul r22,r24
+  36 000c A001      		movw r20,r0
+  37 000e 1124      		clr r1
+  38               	.LVL2:
+  39 0010 9A01      		movw r18,r20
+  40 0012 60E0      		ldi r22,lo8(0)
+  41               	.LVL3:
+  42               	.LBB36:
+  43               	.LBB37:
+  44               	.LBB38:
+  45               	.LBB39:
+  46               	.LSM3:
+  47 0014 FAE1      		ldi r31,lo8(26)
+  48               	.LBE39:
+  49               	.LBE38:
+  50               	.LBE37:
+  51               	.LBE36:
+  52               	.LSM4:
+  53 0016 E4EA      		ldi r30,lo8(-92)
+  54 0018 00C0      		rjmp .L2
+  55               	.LVL4:
+  56               	.L10:
+  57               	.LSM5:
+  58 001a 8091 BC00 		lds r24,188
+  59               	.LVL5:
+  60 001e 87FF      		sbrs r24,7
+  61 0020 00C0      		rjmp .L3
+  62               	.LSM6:
+  63 0022 8091 B900 		lds r24,185
+  64 0026 90E0      		ldi r25,lo8(0)
+  65 0028 887F      		andi r24,lo8(248)
+  66 002a 9070      		andi r25,hi8(248)
+  67 002c 8031      		cpi r24,16
+  68 002e 9105      		cpc r25,__zero_reg__
+  69 0030 01F0      		breq .L5
+  70 0032 8833      		cpi r24,56
+  71 0034 9105      		cpc r25,__zero_reg__
+  72 0036 01F0      		breq .L6
+  73 0038 0897      		sbiw r24,8
+  74 003a 01F4      		brne .L22
+  75 003c 00C0      		rjmp .L5
+  76               	.L6:
+  77               	.LSM7:
+  78 003e E093 BC00 		sts 188,r30
+  79 0042 00C0      		rjmp .L7
+  80               	.L5:
+  81               	.LSM8:
+  82 0044 61E0      		ldi r22,lo8(1)
+  83               	.L3:
+  84               	.LBB43:
+  85               	.LBB42:
+  86               	.LBB41:
+  87               	.LBB40:
+  88               	.LSM9:
+  89 0046 8F2F      		mov r24,r31
+  90               	.LVL6:
+  91               	/* #APP */
+  92               	 ;  83 "/usr/lib/gcc/avr/4.3.4/../../../avr/include/util/delay_basic.h" 1
+  93 0048 8A95      		1: dec r24
+  94 004a 01F4      		brne 1b
+  95               	 ;  0 "" 2
+  96               	/* #NOAPP */
+  97               	.L7:
+  98 004c 2150      		subi r18,lo8(-(-1))
+  99 004e 3040      		sbci r19,hi8(-(-1))
+ 100               	.LVL7:
+ 101               	.L2:
+ 102               	.LBE40:
+ 103               	.LBE41:
+ 104               	.LBE42:
+ 105               	.LBE43:
+ 106               	.LSM10:
+ 107 0050 2115      		cp r18,__zero_reg__
+ 108 0052 3105      		cpc r19,__zero_reg__
+ 109 0054 01F0      		breq .L9
+ 110 0056 6623      		tst r22
+ 111 0058 01F0      		breq .L10
+ 112 005a 00C0      		rjmp .L11
+ 113               	.L9:
+ 114               	.LSM11:
+ 115 005c 6623      		tst r22
+ 116 005e 01F4      		brne .L11
+ 117               	.L22:
+ 118               	.LSM12:
+ 119 0060 84E0      		ldi r24,lo8(4)
+ 120               	.LVL8:
+ 121 0062 8093 BC00 		sts 188,r24
+ 122 0066 00C0      		rjmp .L21
+ 123               	.LVL9:
+ 124               	.L11:
+ 125               	.LSM13:
+ 126 0068 7093 BB00 		sts 187,r23
+ 127               	.LSM14:
+ 128 006c 84E8      		ldi r24,lo8(-124)
+ 129               	.LVL10:
+ 130 006e 8093 BC00 		sts 188,r24
+ 131               	.LBB44:
+ 132               	.LBB45:
+ 133               	.LBB46:
+ 134               	.LBB47:
+ 135               	.LSM15:
+ 136 0072 9AE1      		ldi r25,lo8(26)
+ 137 0074 00C0      		rjmp .L12
+ 138               	.LVL11:
+ 139               	.L14:
+ 140               	.LBE47:
+ 141               	.LBE46:
+ 142               	.LBE45:
+ 143               	.LBE44:
+ 144               	.LSM16:
+ 145 0076 8091 BC00 		lds r24,188
+ 146 007a 87FD      		sbrc r24,7
+ 147 007c 00C0      		rjmp .L13
+ 148               	.LBB51:
+ 149               	.LBB50:
+ 150               	.LBB49:
+ 151               	.LBB48:
+ 152               	.LSM17:
+ 153 007e 892F      		mov r24,r25
+ 154               	.LVL12:
+ 155               	/* #APP */
+ 156               	 ;  83 "/usr/lib/gcc/avr/4.3.4/../../../avr/include/util/delay_basic.h" 1
+ 157 0080 8A95      		1: dec r24
+ 158 0082 01F4      		brne 1b
+ 159               	 ;  0 "" 2
+ 160               	.LVL13:
+ 161               	/* #NOAPP */
+ 162               	.L12:
+ 163               	.LBE48:
+ 164               	.LBE49:
+ 165               	.LBE50:
+ 166               	.LBE51:
+ 167               	.LSM18:
+ 168 0084 4150      		subi r20,lo8(-(-1))
+ 169 0086 5040      		sbci r21,hi8(-(-1))
+ 170 0088 8FEF      		ldi r24,hi8(-1)
+ 171 008a 4F3F      		cpi r20,lo8(-1)
+ 172 008c 5807      		cpc r21,r24
+ 173               	.LVL14:
+ 174 008e 01F4      		brne .L14
+ 175               	.L13:
+ 176               	.LSM19:
+ 177 0090 452B      		or r20,r21
+ 178 0092 01F4      		brne .L15
+ 179               	.LVL15:
+ 180               	.L21:
+ 181 0094 80E0      		ldi r24,lo8(0)
+ 182 0096 0895      		ret
+ 183               	.LVL16:
+ 184               	.L15:
+ 185               	.LSM20:
+ 186 0098 8091 B900 		lds r24,185
+ 187 009c 90E0      		ldi r25,lo8(0)
+ 188 009e 887F      		andi r24,lo8(248)
+ 189 00a0 9070      		andi r25,hi8(248)
+ 190 00a2 8831      		cpi r24,24
+ 191 00a4 9105      		cpc r25,__zero_reg__
+ 192 00a6 01F0      		breq .L17
+ 193 00a8 8034      		cpi r24,64
+ 194 00aa 9105      		cpc r25,__zero_reg__
+ 195 00ac 01F4      		brne .L20
+ 196               	.L17:
+ 197 00ae 81E0      		ldi r24,lo8(1)
+ 198 00b0 0895      		ret
+ 199               	.L20:
+ 200               	.LSM21:
+ 201 00b2 84E9      		ldi r24,lo8(-108)
+ 202 00b4 8093 BC00 		sts 188,r24
+ 203 00b8 80E0      		ldi r24,lo8(0)
+ 204               	.LBE35:
+ 205               	.LSM22:
+ 206 00ba 0895      		ret
+ 207               	.LFE15:
+ 233               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 TWI.c
+     /tmp/ccoOAipf.s:2      *ABS*:0000003f __SREG__
+     /tmp/ccoOAipf.s:3      *ABS*:0000003e __SP_H__
+     /tmp/ccoOAipf.s:4      *ABS*:0000003d __SP_L__
+     /tmp/ccoOAipf.s:5      *ABS*:00000034 __CCP__
+     /tmp/ccoOAipf.s:6      *ABS*:00000000 __tmp_reg__
+     /tmp/ccoOAipf.s:7      *ABS*:00000001 __zero_reg__
+     /tmp/ccoOAipf.s:21     .text.TWI_StartTransmission:00000000 TWI_StartTransmission
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
